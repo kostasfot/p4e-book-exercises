@@ -12,7 +12,7 @@ Explanation: The number 5 is evaluated and displayed as the result.
 2. Type `x = 5` and press Enter:  
 Output: No output (the assignment is stored in memory)  
 Explanation: The variable `x` is assigned the value of `5`.
-3. Type `x + 1` and press Enter:  
+3. Type `x + 1` and press Enter:   
 Output: 6  
 Explanation: The expression `x + 1` is evaluated, where `x` is the variable with a value of `5`. The result, `6`, is displayed.
 
