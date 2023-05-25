@@ -56,3 +56,49 @@ e) Zap Zap Zap
 
 ## Exercise 6
 ### Rewrite your pay computation with time-and-a-half for overtime and create a function called computepay which takes two parameters (hours and rate).
+```python
+def computepay(hours, rate):
+    try:
+        hours = float(hours)
+        rate = float(rate)
+
+        pay = hours * rate
+
+        if hours > 40 :
+            pay = ((rate * 0.5) * (hours - 40)) + pay
+        
+    except:
+        print('Error, enter a numeric input')
+
+    return pay
+
+computepay(45, 10)
+```
+
+## Exercise 7
+### Rewrite the grade program from the previous chapter using a function called computegrade that takes a score as its parameter and returns a grade as a string.
+```python
+def computegrade(score) :
+
+    grade = str()
+
+    try :
+        score = float(score)
+    except :
+        grade = 'Bad score'
+    
+    if score < 0 or score > 1 :
+        grade = 'Bad Score'
+    elif score < 0.6 :
+        grade = 'F'
+    elif score > 0.6 and score <= 0.7 :
+        grade = 'D'
+    elif score > 0.7 and score <= 0.8 :
+        grade = 'C'
+    elif score > 0.8 and score <= 0.9 :
+        grade = 'B'
+    elif score > 0.9 :
+        grade = 'A'
+    
+    return grade
+```
