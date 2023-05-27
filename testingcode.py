@@ -1,25 +1,10 @@
-fname = input('Enter file path: ')
-
-try :
-    if fname == 'na na boo boo' :
-        print("'NA NA BOO BOO TO YOU - You have been punk'd!")
-    fhand = open(fname)
-    
-except :
-    print(f'File {fname}, not found')
-    print('Setting path to exercise-files\mbox-short.txt')
-    fname = 'exercise-files\mbox-short.txt'
-    fhand = open(fname) 
-    
+fhand = open('exercise-files/mbox-short.txt')
 count = 0
-dsum = 0
-
 for line in fhand :
-    if not line.startswith('X-DSPAM-Confidence:') :
+    if not line.startswith('From ') :
         continue
-    colpos = line.find(':')
-    dspam = float(line[colpos + 1:])
+    words = line.split()
+    print(words[1])
     count = count + 1
-    dsum = dsum + dspam
+print(f'There were {count} lines in the file with From as the first word')
 
-print(f'Average spam confidence: {dsum/count}')
