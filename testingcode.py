@@ -1,10 +1,21 @@
-fhand = open('exercise-files/mbox-short.txt')
-count = 0
-for line in fhand :
-    if not line.startswith('From ') :
-        continue
-    words = line.split()
-    print(words[1])
-    count = count + 1
-print(f'There were {count} lines in the file with From as the first word')
+numlist = []
 
+while True :
+    inp = input('Enter a number: ')
+    if inp == 'done' :
+        print('done')
+        break
+    try :
+        num = float(inp)
+    except :
+        print('Please enter a numeric value')
+        continue
+    numlist.append(num)
+
+try :
+    maxnum = max(numlist)
+    minmum = min(numlist)
+    print(f'Maximum: {maxnum}\nMinimum: {minmum}')
+except :
+    print('No values provided')
+    exit()

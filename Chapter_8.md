@@ -113,3 +113,30 @@ for line in fhand :
     count = count + 1
 print(f'There were {count} lines in the file with From as the first word')
 ```
+
+## Exercise 6
+### Rewrite the program that prompts the user for a list of numbers and prints out the maximum and miminmum of the numbers at the end when the user enters "done". Write the program to store the numbers the user enters in a list and use the max() and min() functions to compute the maximum and minimum numbers after the loop completes.
+
+```python
+numlist = []
+
+while True :
+    inp = input('Enter a number: ')
+    if inp == 'done' :
+        print('done')
+        break
+    try :
+        num = float(inp)
+    except :
+        print('Please enter a numeric value')
+        continue
+    numlist.append(num)
+
+try :
+    maxnum = max(numlist)
+    minmum = min(numlist)
+    print(f'Maximum: {maxnum}\nMinimum: {minmum}')
+except :
+    print('No values provided')
+    exit()
+```
