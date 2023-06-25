@@ -1,4 +1,4 @@
-# Chapter 9: Dictionaries
+# Chapter 10: Tuples
 ## Exercise 1
 ### Revise a previous program as follows: Read and parse the “From” lines and pull out the addresses from the line. Count the number of messages from each person using a dictionary.
 
