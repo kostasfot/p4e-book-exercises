@@ -1,40 +1,35 @@
 import string
 
-fname = input("Enter file name: ")
+counts = 0
+dict_counts = dict()
+lst = list()
 
-try :
+fname = input('Enter file path: ')
+try:
     fhand = open(fname)
-except :
-    print("File cannot be opened:", fname)
-    print('Setting file to mbox-short.txt')
-    fhand = open('exercise-files/mbox-short.txt')
-
-counts = dict()
+except FileNotFoundError:
+    print('File not found, setting random file.')
+    fhand = open('exercise-files/romeo-full.txt')
     
-atpos = None
-domain = None
-    
-for line in fhand :
+for line in fhand:
     line = line.rstrip()
+    line = line.translate(str.maketrans('', '', string.digits))
+    line = line.translate(str.maketrans('', '', string.punctuation))
+    line = line.lower()
     words = line.split()
-    if len(words) < 3 or words[0] != 'From' : 
-        continue
-    atpos = words[1].find('@')
-    domain = words[1][atpos+1 :]
-    
-    if domain not in counts :
-        counts[domain] = 1
-    else:
-        counts[domain] += 1
-        
-print(counts)
-    
-mxkey = None
-mxcnt = None
-    
-for key in counts :
-    if mxcnt is None or counts[key] > mxcnt :
-        mxcnt = counts[key]
-        mxkey = key
-        
-print(mxkey, mxcnt)
+
+    for word in words:
+        for letter in word:
+            counts = counts + 1
+            if letter not in dict_counts:
+                dict_counts[letter] = 1
+            else:
+                dict_counts[letter] += 1
+
+for key, val in list(dict_counts.items()):
+    lst.append((val / counts, key))
+
+lst.sort(reverse=True)
+
+for key, val in lst:
+    print(key, val)
